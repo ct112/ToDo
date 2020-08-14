@@ -1,10 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+        <header>
+            <form>
+                <input type="text" placeholder="Input Text">
+                <input type="button" value="submit">
+            </form>
+        </header>
+        <div id="div">
+            <ul id="ul">
+            </ul>
 
-</body>
+        </div>
+        <script>
+            const inputNodeList = document.querySelectorAll("input");
+            inputNodeList[1].addEventListener('click',()=>{
+                const userInput = inputNodeList[0].value;
+                const ul = document.getElementById("ul");
+                let li = document.createElement("li");
+                li.classList.add("li");
+                li.textContent = userInput;
+                let delete_button = document.createElement("button");
+                delete_button.setAttribute("value", "delete");
+                delete_button.setAttribute("style", "height:14px");
+
+
+                li.appendChild(delete_button);
+
+                ul.appendChild(li);
+            })
+
+
+
+        </script>
+    </body>
 </html>

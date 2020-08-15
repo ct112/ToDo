@@ -1,11 +1,12 @@
 const inputNodeList = document.querySelectorAll("input");
 inputNodeList[1].addEventListener('click',()=>{
     const userInput = inputNodeList[0].value;
+    inputNodeList[0].value = ""
     const ul = document.getElementById("ul");
     let li = document.createElement("li");
+    li.textContent = userInput;
     li.classList.add("li","completed");
     li.classList.toggle("completed");
-    li.textContent = userInput;
     li.addEventListener("click", ()=>{
         li.classList.toggle("completed");
     })
@@ -14,9 +15,8 @@ inputNodeList[1].addEventListener('click',()=>{
     delete_button.setAttribute("style", "height:14px");
     delete_button.addEventListener("click", event =>{
         const target = event.target;
-        const parent_node = target.parentNode;
-        console.log(parent_node);
-        parent_node.remove();
+        const parentNode = target.parentNode;
+        parentNode.remove();
     })
     li.appendChild(delete_button);
     ul.appendChild(li);
